@@ -5,3 +5,7 @@ yarn-lock
 package-lock.json
 public/
 styles/
+.eslintrc.js
+next.config.js
+postcss.config.js
+tailwind.config.js
