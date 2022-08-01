@@ -21,7 +21,7 @@ Code Challenge for applying to Flow's work.
   - define use cases(bussiness logic)
 - **Frontend**:
   - define basic theme variables.
-  - SEO basics(title, description, links, alts, canonicals, semantics)
+  - SEO basics(title, description, links, alts, canonicals, semantics, favicon)
   - define UX
   - develop pages
   - implement functionality
@@ -30,6 +30,7 @@ Code Challenge for applying to Flow's work.
   - config heroku app for docker container
   - test deploy
 - **Miscelaneous**:
+  - SEO share meta tags
   - performance logs
   - testing
   - Geolocalization
