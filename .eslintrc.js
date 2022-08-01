@@ -26,7 +26,7 @@ module.exports = {
     "import/prefer-default-export": "off",
     "react/prop-types": "off",
     "react/jsx-props-no-spreading": "off",
-    "no-console": ["warn", { allow: ["warn", "error"] }],
+    "no-console": ["error", { allow: ["error", "info"] }],
     "react/function-component-definition": "off",
     "react/jsx-filename-extension": "off",
     "jsx-a11y/anchor-is-valid": "warn",
