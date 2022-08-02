@@ -36,30 +36,18 @@ const ClimateSelector = ({ selectedDefault }) => {
               </button>
             )}
           </div>
-          {cityOptions.map((city, index) => (
-            <div
-              className={`border-2 border-t-0${
-                index === cityOptions.length - 1 && isSearching
-                  ? " rounded-b"
-                  : ""
-              }`}
-              key={`city-${city}`}
-            >
+          {cityOptions.map((city) => (
+            <div className="border-2 border-t-0" key={`city-${city}`}>
               <button type="button" onClick={() => selectNewCity(city)}>
                 {city}
               </button>
             </div>
           ))}
-          {!isSearching && (
-            <div className="border-2 border-t-0 rounded-b">
-              <button
-                type="button"
-                onClick={() => setIsSearching(!isSearching)}
-              >
-                Search...
-              </button>
-            </div>
-          )}
+          <div className="border-2 border-t-0 rounded-b">
+            <button type="button" onClick={() => setIsSearching(!isSearching)}>
+              {!isSearching ? "Search..." : "Cancel"}
+            </button>
+          </div>
         </div>
       </div>
       <div className="md:w-2/3">
