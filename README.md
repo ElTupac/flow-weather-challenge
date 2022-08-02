@@ -45,7 +45,7 @@ This project is done in order to apply for a developer job at Flow. The challeng
   - define use cases(bussiness logic)
   - explain the architecture in the readme
 - **Frontend**:
-  - define basic theme variables.
+  - ~~define basic theme variables.~~
   - SEO basics(title, description, links, alts, canonicals, semantics, favicon)
   - define UX
   - develop pages
