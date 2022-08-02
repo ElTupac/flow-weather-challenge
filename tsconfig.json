@@ -15,7 +15,9 @@
     "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
-      "@wrappers/*": ["src/components/page-wrappers/*"]
+      "@wrappers/*": ["src/components/page-wrappers/*"],
+      "@ui/*": ["src/components/UI/*"],
+      "@layouts/*": ["src/components/layout/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
