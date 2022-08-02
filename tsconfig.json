@@ -17,7 +17,8 @@
     "paths": {
       "@wrappers/*": ["src/components/page-wrappers/*"],
       "@ui/*": ["src/components/UI/*"],
-      "@layouts/*": ["src/components/layout/*"]
+      "@layouts/*": ["src/components/layout/*"],
+      "@utils/*": ["src/utilities/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
