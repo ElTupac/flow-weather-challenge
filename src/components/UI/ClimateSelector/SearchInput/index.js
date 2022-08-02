@@ -2,7 +2,11 @@ import { useEffect, useRef } from "react";
 import debounceFunction from "@utils/helpers/debounceFunction";
 
 const SearchInput = ({ handleResultChanges, readonly = false, inputValue }) => {
-  const inputProps = { defaultValue: inputValue, name: "city" };
+  const inputProps = {
+    defaultValue: inputValue,
+    name: "city",
+    className: "px-2 py-1 w-full",
+  };
   if (readonly) inputProps.readonly = true;
 
   const searchOnInput = debounceFunction((e) => {

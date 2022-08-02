@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SearchInput from "./SearchInput";
+import OptionCity from "./OptionCity";
 
 const ClimateSelector = ({ selectedDefault }) => {
   const [citySelected, setCitySelected] = useState({
@@ -20,40 +21,43 @@ const ClimateSelector = ({ selectedDefault }) => {
   };
 
   return (
-    <div className="container mx-auto md:flex">
-      <div className="md:w-1/3">
-        <div
-          className={`max-h-7 overflow-hidden transition-[max-height duration-500${
-            isSelectingCity ? " !max-h-screen" : ""
-          }`}
-        >
-          <div className="border-2 rounded-t">
-            {isSearching ? (
-              <SearchInput handleResultChanges={setCityOptions} />
-            ) : (
-              <button type="button" onClick={() => setIsSelectingCity(true)}>
-                {citySelected.cityName}
-              </button>
-            )}
-          </div>
-          {cityOptions.map((city) => (
-            <div className="border-2 border-t-0" key={`city-${city}`}>
-              <button type="button" onClick={() => selectNewCity(city)}>
-                {city}
-              </button>
-            </div>
-          ))}
-          <div className="border-2 border-t-0 rounded-b">
-            <button type="button" onClick={() => setIsSearching(!isSearching)}>
-              {!isSearching ? "Search..." : "Cancel"}
+    <section className="md:w-1/3 rounded-lg shadow-lg h-fit">
+      <div
+        className={`max-h-7 overflow-hidden m-5 transition-[max-height duration-500${
+          isSelectingCity ? " !max-h-screen" : ""
+        }`}
+      >
+        <div className="border-2 rounded-t">
+          {isSearching ? (
+            <SearchInput handleResultChanges={setCityOptions} />
+          ) : (
+            <button
+              type="button"
+              className="px-2 py-1"
+              onClick={() => setIsSelectingCity(true)}
+            >
+              {citySelected.cityName}
             </button>
-          </div>
+          )}
+        </div>
+        {cityOptions.map((city) => (
+          <OptionCity
+            onSelect={selectNewCity}
+            key={`city-${city}`}
+            cityName={city}
+          />
+        ))}
+        <div className="border-2 border-t-0 rounded-b">
+          <button
+            type="button"
+            className="px-2 py-1"
+            onClick={() => setIsSearching(!isSearching)}
+          >
+            {!isSearching ? "Search..." : "Cancel"}
+          </button>
         </div>
       </div>
-      <div className="md:w-2/3">
-        <p>Climate info</p>
-      </div>
-    </div>
+    </section>
   );
 };
 
