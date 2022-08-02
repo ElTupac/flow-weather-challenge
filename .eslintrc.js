@@ -21,6 +21,7 @@ module.exports = {
   },
   plugins: ["react"],
   rules: {
+    "no-plusplus": "off",
     "react/react-in-jsx-scope": "off",
     "import/no-unresolved": "off",
     "import/prefer-default-export": "off",
