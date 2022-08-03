@@ -1,21 +1,18 @@
-import getPeriodOfDay from "@utils/getters/getPeriodOfDay";
-import TimeAndDate from "./TimeAndDate";
+import MainWeatherInfo from "./MainWeatherInfo";
+import MultipleDaysWeather from "./MultipleDaysWeather";
 
-const citiesBackground = {
-  day: "bg-[url('/images/cities/city-day.jpg')]",
-  night: "bg-[url('/images/cities/city-night.jpg')]",
-};
+const ClimateInfo = ({ forecast }) => {
+  const [todayWeather, ...nextDays] = forecast;
 
-const ClimateInfo = () => (
-  <section
-    className={`rounded-lg h-fit p-2 shadow-lg xl:w-1/3 md:w-1/2 bg-center bg-cover bg-no-repeat ${
-      citiesBackground[getPeriodOfDay(new Date())]
-    }`}
-  >
-    <div className="rounded-lg m-5 p-5 bg-brand-lighten-100-gray/50">
-      <TimeAndDate />
+  return (
+    <div className="w-full">
+      <MainWeatherInfo weatherInfo={todayWeather} />
+      <div>
+        <h2>Next days forecast</h2>
+        <MultipleDaysWeather weatherInfo={nextDays} />
+      </div>
     </div>
-  </section>
-);
+  );
+};
 
 export default ClimateInfo;
