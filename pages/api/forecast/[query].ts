@@ -7,8 +7,7 @@ export default async function handler(
   res: NextApiResponse<IForecast>
 ) {
   const { query } = req.query as { query: string };
-  const forecastObject = new Forecast(query);
-  const forecastData = await forecastObject.getData();
+  const forecastData = await new Forecast(query).getForecast();
 
   return res.status(200).json(forecastData);
 }
