@@ -1,4 +1,5 @@
 import * as Layouts from "@layouts/index";
+import LoadingBar from "@ui/LoadingBar";
 
 import "../styles/globals.css";
 
@@ -10,9 +11,12 @@ const App = ({ Component, pageProps }) => {
       : Layouts.DefaultLayout;
 
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <>
+      <LoadingBar />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </>
   );
 };
 
