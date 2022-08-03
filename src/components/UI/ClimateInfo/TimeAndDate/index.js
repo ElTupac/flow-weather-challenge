@@ -24,8 +24,8 @@ const TimeAndDate = ({ timeZone }) => {
 
   return (
     <div>
-      <h3>{dateInfo.hour}</h3>
-      <h4>{dateInfo.date}</h4>
+      <h3 className="text-5xl">{dateInfo.hour}</h3>
+      <h4 className="text-xl">{dateInfo.date}</h4>
       <p>{dateInfo.year}</p>
     </div>
   );

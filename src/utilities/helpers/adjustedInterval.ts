@@ -6,6 +6,7 @@ const adjustedIntervalFunction = (func: () => void, interval = 1000) => {
     const drift = Date.now() - expected;
     if (drift > interval) expected = Date.now() + interval;
     else expected += interval;
+    func();
 
     timeout = setTimeout(step, Math.max(0, interval - drift));
   };
