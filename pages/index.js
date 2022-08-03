@@ -8,7 +8,7 @@ export async function getServerSideProps({ req }) {
   const props = {};
 
   const ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
-  if (validIpAddress) {
+  if (validIpAddress(ip)) {
     const searchByIp = new Search(ip);
     const searchResults = await searchByIp.getResults();
     props.search = searchResults;
