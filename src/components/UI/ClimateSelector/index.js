@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ChevronUpIcon } from "@heroicons/react/outline";
 import SearchInput from "./SearchInput";
 import OptionCity from "./OptionCity";
 
@@ -23,7 +24,7 @@ const ClimateSelector = ({ selectedDefault }) => {
   return (
     <section className="md:w-1/3 rounded-lg shadow-lg h-fit">
       <div
-        className={`max-h-7 overflow-hidden m-5 transition-[max-height duration-500${
+        className={`max-h-9 overflow-hidden m-5 transition-[max-height duration-500${
           isSelectingCity ? " !max-h-screen" : ""
         }`}
       >
@@ -33,10 +34,15 @@ const ClimateSelector = ({ selectedDefault }) => {
           ) : (
             <button
               type="button"
-              className="px-2 py-1"
-              onClick={() => setIsSelectingCity(true)}
+              className="px-2 py-1 w-full text-left relative"
+              onClick={() => setIsSelectingCity(!isSelectingCity)}
             >
               {citySelected.cityName}
+              <ChevronUpIcon
+                className={`h-5 w-5 absolute right-1.5 top-1.5 transition-transform duration-500${
+                  isSelectingCity ? " -rotate-180" : ""
+                }`}
+              />
             </button>
           )}
         </div>
