@@ -10,6 +10,7 @@
     "incremental": true,
     "esModuleInterop": true,
     "module": "esnext",
+    "moduleResolution": "node",
     "isolatedModules": true,
     "jsx": "preserve",
     "resolveJsonModule": true,
@@ -18,7 +19,9 @@
       "@wrappers/*": ["src/components/page-wrappers/*"],
       "@ui/*": ["src/components/UI/*"],
       "@layouts/*": ["src/components/layout/*"],
-      "@utils/*": ["src/utilities/*"]
+      "@utils/*": ["src/utilities/*"],
+      "@interfaces/*": ["src/interfaces/*"],
+      "@models/*": ["src/models/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
