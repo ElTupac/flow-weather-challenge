@@ -37,7 +37,7 @@ This project is done in order to apply for a developer job at Flow. The challeng
   - ~~write first part of this readme, foundations and why of each thing~~
 - **Architecture**:
   - ~~folder structure~~
-  - define absolute paths
+  - ~~define absolute paths~~
   - ~~create the interfaces based on the API info~~
   - ~~define Objects(User, Climate, City, etc)~~
   - ~~define API routes for each Object~~
