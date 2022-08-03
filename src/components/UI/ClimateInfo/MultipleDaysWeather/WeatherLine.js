@@ -20,8 +20,9 @@ const WeatherLine = ({
       />
     </div>
     <p className="w-1/2 text-right">
-      <span>{maxtemp_c}</span>
-      <span>{mintemp_c}</span>
+      <span>{maxtemp_c}&#8451;</span>
+      &emsp;
+      <span>{mintemp_c}&#8451;</span>
     </p>
   </div>
 );
