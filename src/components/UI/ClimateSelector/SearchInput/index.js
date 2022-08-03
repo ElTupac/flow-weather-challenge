@@ -1,8 +1,10 @@
-import { useEffect, useRef } from "react";
-import { SearchIcon } from "@heroicons/react/outline";
+import { useEffect, useRef, useState } from "react";
+import { SearchIcon, ClockIcon } from "@heroicons/react/outline";
 import debounceFunction from "@utils/helpers/debounceFunction";
 
 const SearchInput = ({ handleResultChanges, readonly = false, inputValue }) => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const inputProps = {
     defaultValue: inputValue,
     name: "city",
@@ -12,16 +14,14 @@ const SearchInput = ({ handleResultChanges, readonly = false, inputValue }) => {
 
   const searchOnInput = debounceFunction((e) => {
     const { value } = e.target;
-    const searchResults = [];
-    for (let i = 0; i < 5; i++)
-      searchResults.push({
-        name: value,
-        region: value,
-        country: value,
-        url: value + i,
+    setIsLoading(true);
+    fetch(`/api/search/${encodeURIComponent(value)}`)
+      .then((res) => res.json())
+      .then(({ results }) => {
+        setIsLoading(false);
+        handleResultChanges(results);
       });
-    handleResultChanges(searchResults);
-  }, 2000);
+  }, 500);
 
   const inputRef = useRef(null);
 
@@ -30,7 +30,11 @@ const SearchInput = ({ handleResultChanges, readonly = false, inputValue }) => {
   return (
     <div className="relative">
       <input {...inputProps} ref={inputRef} onInput={searchOnInput} />
-      <SearchIcon className="absolute h-5 w-5 right-1.5 top-1.5" />
+      {isLoading ? (
+        <ClockIcon className="absolute h-5 w-5 right-1.5 top-1.5" />
+      ) : (
+        <SearchIcon className="absolute h-5 w-5 right-1.5 top-1.5" />
+      )}
     </div>
   );
 };

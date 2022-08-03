@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ChevronUpIcon } from "@heroicons/react/outline";
 import getDefaultLocations from "@utils/getters/getDefaultLocations";
 import SearchInput from "./SearchInput";
@@ -14,13 +14,11 @@ const ClimateSelector = ({ defaultOptions }) => {
   const [isSelectingCity, setIsSelectingCity] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
 
-  useEffect(() => {
+  const selectNewCity = ({ name, region }) => {
+    if (citySelected.cityName !== name)
+      setCitySelected({ cityName: `${name}${region ? `, ${region}` : ""}` });
     setIsSelectingCity(false);
     setIsSearching(false);
-  }, [citySelected]);
-
-  const selectNewCity = ({ name }) => {
-    if (citySelected.cityName !== name) setCitySelected({ cityName: name });
   };
 
   return (
