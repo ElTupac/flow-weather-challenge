@@ -21,6 +21,7 @@ module.exports = {
   },
   plugins: ["react"],
   rules: {
+    "react/jsx-fragments": "off",
     "no-plusplus": "off",
     "react/react-in-jsx-scope": "off",
     "import/no-unresolved": "off",
