@@ -36,13 +36,13 @@ This project is done in order to apply for a developer job at Flow. The challeng
   - ~~husky for automatize commits with linter and prettier~~
   - ~~write first part of this readme, foundations and why of each thing~~
 - **Architecture**:
-  - folder structure
+  - ~~folder structure~~
   - define absolute paths
-  - create the interfaces based on the API info
-  - define Objects(User, Climate, City, etc)
-  - define API routes for each Object
-  - develop controllers
-  - define use cases(bussiness logic)
+  - ~~create the interfaces based on the API info~~
+  - ~~define Objects(User, Climate, City, etc)~~
+  - ~~define API routes for each Object~~
+  - ~~develop controllers~~
+  - ~~define use cases(bussiness logic)~~
   - explain the architecture in the readme
 - **Frontend**:
   - define basic theme variables.
