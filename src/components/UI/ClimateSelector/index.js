@@ -1,24 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChevronUpIcon } from "@heroicons/react/outline";
+import getDefaultLocations from "@utils/getters/getDefaultLocations";
 import SearchInput from "./SearchInput";
 import OptionCity from "./OptionCity";
 
-const ClimateSelector = ({ selectedDefault }) => {
+const ClimateSelector = ({ defaultOptions }) => {
   const [citySelected, setCitySelected] = useState({
-    cityName: selectedDefault,
+    cityName: null,
   });
-  const [cityOptions, setCityOptions] = useState([
-    "New York",
-    "Atlanta",
-    "Georgetown",
-    "Washington",
-    "Buenos Aires",
-  ]);
+  const [cityOptions, setCityOptions] = useState(
+    Array.isArray(defaultOptions) ? defaultOptions : getDefaultLocations()
+  );
   const [isSelectingCity, setIsSelectingCity] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
 
-  const selectNewCity = (cityName) => {
-    if (citySelected.cityName !== cityName) setCitySelected({ cityName });
+  useEffect(() => {
+    setIsSelectingCity(false);
+    setIsSearching(false);
+  }, [citySelected]);
+
+  const selectNewCity = ({ name }) => {
+    if (citySelected.cityName !== name) setCitySelected({ cityName: name });
   };
 
   return (
@@ -37,7 +39,7 @@ const ClimateSelector = ({ selectedDefault }) => {
               className="px-2 py-1 w-full text-left relative"
               onClick={() => setIsSelectingCity(!isSelectingCity)}
             >
-              {citySelected.cityName}
+              {citySelected.cityName || "Choose a city..."}
               <ChevronUpIcon
                 className={`h-5 w-5 absolute right-1.5 top-1.5 transition-transform duration-500${
                   isSelectingCity ? " -rotate-180" : ""
@@ -49,14 +51,14 @@ const ClimateSelector = ({ selectedDefault }) => {
         {cityOptions.map((city) => (
           <OptionCity
             onSelect={selectNewCity}
-            key={`city-${city}`}
-            cityName={city}
+            key={`city-${city.url}`}
+            cityData={city}
           />
         ))}
         <div className="border-2 border-t-0 rounded-b">
           <button
             type="button"
-            className="px-2 py-1"
+            className="px-2 py-1 w-full text-left"
             onClick={() => setIsSearching(!isSearching)}
           >
             {!isSearching ? "Search..." : "Cancel"}

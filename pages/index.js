@@ -1,6 +1,7 @@
 import validIpAddress from "@utils/validators/validIpAddress";
 import getDefaultLocations from "@utils/getters/getDefaultLocations";
 import { Search } from "@models/Search";
+import Head from "next/head";
 import HomeWrapper from "@wrappers/HomeWrapper";
 
 export async function getServerSideProps({ req }) {
@@ -21,6 +22,13 @@ export async function getServerSideProps({ req }) {
   };
 }
 
-const Home = () => <HomeWrapper />;
+const Home = (props) => (
+  <>
+    <Head>
+      <title>Flow Weather</title>
+    </Head>
+    <HomeWrapper {...props} />
+  </>
+);
 
 export default Home;

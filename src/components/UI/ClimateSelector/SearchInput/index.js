@@ -13,7 +13,13 @@ const SearchInput = ({ handleResultChanges, readonly = false, inputValue }) => {
   const searchOnInput = debounceFunction((e) => {
     const { value } = e.target;
     const searchResults = [];
-    for (let i = 0; i < 5; i++) searchResults.push(value);
+    for (let i = 0; i < 5; i++)
+      searchResults.push({
+        name: value,
+        region: value,
+        country: value,
+        url: value + i,
+      });
     handleResultChanges(searchResults);
   }, 2000);
 

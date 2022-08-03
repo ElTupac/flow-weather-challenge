@@ -1,9 +1,9 @@
 import ClimateSelector from "@ui/ClimateSelector";
 import ClimateInfo from "@ui/ClimateInfo";
 
-const HomeWrapper = () => (
+const HomeWrapper = ({ search: { results } }) => (
   <div className="container mx-auto md:flex items-center md:gap-x-5">
-    <ClimateSelector selectedDefault="Cordoba" />
+    <ClimateSelector defaultOptions={results} />
     <ClimateInfo />
   </div>
 );
