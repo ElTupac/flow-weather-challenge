@@ -8,7 +8,7 @@ const citiesBackground = {
 
 const ClimateInfo = () => (
   <section
-    className={`rounded-lg h-fit shadow-lg md:w-2/3 bg-center bg-cover bg-no-repeat ${
+    className={`rounded-lg h-fit p-2 shadow-lg xl:w-1/3 md:w-1/2 bg-center bg-cover bg-no-repeat ${
       citiesBackground[getPeriodOfDay(new Date())]
     }`}
   >

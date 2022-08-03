@@ -24,7 +24,7 @@ const ClimateSelector = ({ defaultOptions }) => {
   };
 
   return (
-    <section className="md:w-1/3 rounded-lg shadow-lg h-fit">
+    <section className="xl:w-1/3 md:w-1/2 rounded-lg shadow-lg h-fit p-2">
       <div
         className={`max-h-9 overflow-hidden m-5 transition-[max-height duration-500${
           isSelectingCity ? " !max-h-screen" : ""
