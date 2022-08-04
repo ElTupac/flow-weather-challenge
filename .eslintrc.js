@@ -21,6 +21,7 @@ module.exports = {
   },
   plugins: ["react"],
   rules: {
+    "react/destructuring-assignment": "off",
     "react/jsx-fragments": "off",
     "no-plusplus": "off",
     "react/react-in-jsx-scope": "off",
