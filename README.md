@@ -87,3 +87,5 @@ The service file of our model will contain every needed resolver for the corresp
   - performance logs
   - testing
   - Geolocalization
+
+Total(aprox.) spent hours: 15
