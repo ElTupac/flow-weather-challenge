@@ -3,6 +3,7 @@ import { ChevronDownIcon } from "@heroicons/react/outline";
 import getDefaultLocations from "@utils/getters/getDefaultLocations";
 import SearchInput from "./SearchInput";
 import OptionCity from "./OptionCity";
+import NoResultsLine from "./NoResultsLine";
 
 const ClimateSelector = ({ defaultOptions }) => {
   const [citySelected, setCitySelected] = useState({
@@ -69,13 +70,17 @@ const ClimateSelector = ({ defaultOptions }) => {
             </button>
           )}
         </div>
-        {cityOptions.map((city) => (
-          <OptionCity
-            onSelect={selectNewCity}
-            key={`city-${city.url}`}
-            cityData={city}
-          />
-        ))}
+        {Array.isArray(cityOptions) && cityOptions.length ? (
+          cityOptions.map((city) => (
+            <OptionCity
+              onSelect={selectNewCity}
+              key={`city-${city.url}`}
+              cityData={city}
+            />
+          ))
+        ) : (
+          <NoResultsLine />
+        )}
         <div className="border-2 border-brand-accent-gray border-t-0 rounded-b">
           <button
             type="button"
@@ -85,7 +90,13 @@ const ClimateSelector = ({ defaultOptions }) => {
               resetSearch();
             }}
           >
-            {!isSearching ? "Search..." : "Cancel"}
+            {!isSearching ? (
+              <span className="font-bold text-brand-accent-main">
+                Search...
+              </span>
+            ) : (
+              <span className="text-red-500">Cancel search</span>
+            )}
           </button>
         </div>
       </div>
