@@ -20,7 +20,7 @@ const GeolocationButton = ({ onChangeLocation }) => {
 
   return (
     <>
-      <div className="w-fit absolute py-1 px-2 rounded bg-white/75">
+      <div className="w-fit absolute top-5 py-1 px-2 rounded bg-white/75">
         <button
           type="button"
           className="flex items-center text-brand-accent-main"
