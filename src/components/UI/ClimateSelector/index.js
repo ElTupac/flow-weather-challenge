@@ -1,27 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChevronDownIcon } from "@heroicons/react/outline";
 import getDefaultLocations from "@utils/getters/getDefaultLocations";
 import SearchInput from "./SearchInput";
 import OptionCity from "./OptionCity";
+import NoResultsLine from "./NoResultsLine";
 
 const ClimateSelector = ({ defaultOptions }) => {
   const [citySelected, setCitySelected] = useState({
     cityName: null,
   });
-  const [cityOptions, setCityOptions] = useState(
+
+  const getComponentDefaultOptions = () =>
     Array.isArray(defaultOptions) && defaultOptions.length
       ? defaultOptions
-      : getDefaultLocations()
-  );
+      : getDefaultLocations();
+
+  const [cityOptions, setCityOptions] = useState(getComponentDefaultOptions());
   const [isSelectingCity, setIsSelectingCity] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
 
   const resetSearch = () => {
-    setCityOptions(
-      Array.isArray(defaultOptions) && defaultOptions.length
-        ? defaultOptions
-        : getDefaultLocations()
-    );
+    setCityOptions(getComponentDefaultOptions());
   };
 
   const selectNewCity = ({ name, region }) => {
@@ -30,6 +29,14 @@ const ClimateSelector = ({ defaultOptions }) => {
     setIsSelectingCity(false);
     setIsSearching(false);
   };
+
+  useEffect(() => {
+    setCityOptions(
+      Array.isArray(defaultOptions) && defaultOptions.length
+        ? defaultOptions
+        : getDefaultLocations()
+    );
+  }, [defaultOptions]);
 
   return (
     <section className="xl:w-1/3 md:w-1/2 w-full rounded-lg shadow-lg h-fit p-2 bg-white/[.80] text-brand-accent-main">
@@ -63,13 +70,17 @@ const ClimateSelector = ({ defaultOptions }) => {
             </button>
           )}
         </div>
-        {cityOptions.map((city) => (
-          <OptionCity
-            onSelect={selectNewCity}
-            key={`city-${city.url}`}
-            cityData={city}
-          />
-        ))}
+        {Array.isArray(cityOptions) && cityOptions.length ? (
+          cityOptions.map((city) => (
+            <OptionCity
+              onSelect={selectNewCity}
+              key={`city-${city.url}`}
+              cityData={city}
+            />
+          ))
+        ) : (
+          <NoResultsLine />
+        )}
         <div className="border-2 border-brand-accent-gray border-t-0 rounded-b">
           <button
             type="button"
@@ -79,7 +90,13 @@ const ClimateSelector = ({ defaultOptions }) => {
               resetSearch();
             }}
           >
-            {!isSearching ? "Search..." : "Cancel"}
+            {!isSearching ? (
+              <span className="font-bold text-brand-accent-main">
+                Search...
+              </span>
+            ) : (
+              <span className="text-red-500">Cancel search</span>
+            )}
           </button>
         </div>
       </div>

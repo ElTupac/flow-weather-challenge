@@ -8,7 +8,7 @@ const ClimateInfo = ({ forecast }) => {
     <div className="w-full">
       <MainWeatherInfo weatherInfo={todayWeather} />
       <div>
-        <h2>Next days forecast</h2>
+        <h2 className="text-xl mb-2 font-bold">Next days forecast</h2>
         <MultipleDaysWeather weatherInfo={nextDays} />
       </div>
     </div>

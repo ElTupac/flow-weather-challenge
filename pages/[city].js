@@ -9,15 +9,20 @@ export async function getServerSideProps({ params }) {
   const {
     location: { name },
   } = forecastResult;
-  const props = { title: `${name} forecast`, forecast: forecastResult };
+  const props = {
+    title: `${name} forecast`,
+    description: `Check the weather in ${name}, get the next days forecast`,
+    forecast: forecastResult,
+  };
 
   return { props };
 }
 
-const CityForecast = ({ title, forecast }) => (
+const CityForecast = ({ title, description, forecast }) => (
   <>
     <Head>
       <title>{title}</title>
+      <meta name="description" content={description} />
     </Head>
     <CityForecastWrapper forecast={forecast} />
   </>

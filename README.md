@@ -202,7 +202,7 @@ The application is being deployed with help of Docker, since we need a more robu
   - ~~explain the architecture in the readme~~
 - **Frontend**:
   - ~~define basic theme variables.~~
-  - SEO basics(~~title~~, description, ~~links~~, ~~alts~~, canonicals, ~~semantics~~, ~~favicon~~)
+  - SEO basics(~~title~~, ~~description~~, ~~links~~, ~~alts~~, canonicals, ~~semantics~~, ~~favicon~~)
   - ~~define UX~~
   - ~~develop pages~~
   - ~~implement functionality~~
@@ -214,6 +214,6 @@ The application is being deployed with help of Docker, since we need a more robu
   - SEO share meta tags
   - performance logs
   - testing
-  - Geolocalization
+  - ~~Geolocalization~~
 
 Total(aprox.) spent hours: 17

@@ -8,7 +8,7 @@ const WeatherLine = ({
     day: { condition, maxtemp_c, mintemp_c },
   },
 }) => (
-  <div className="flex items-center justify-between">
+  <div className="flex items-center justify-between border-t pt-1 pb-2">
     <p>{getDateAndTime(date).date}</p>
     <div className="grow">
       <img
