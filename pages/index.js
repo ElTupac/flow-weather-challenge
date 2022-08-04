@@ -32,6 +32,10 @@ const Home = (props) => (
   <>
     <Head>
       <title>Flow Weather</title>
+      <meta
+        name="description"
+        content="Check the weather in your city, quickly and easy."
+      />
     </Head>
     <HomeWrapper {...props} />
   </>
