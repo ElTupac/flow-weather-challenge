@@ -1,4 +1,6 @@
 import getDateAndTime from "@utils/getters/getDateAndTime";
+import TemperatureTag from "@ui/TemperatureTag";
+import { CloudDownloadIcon, CloudUploadIcon } from "@heroicons/react/outline";
 
 const WeatherLine = ({
   weather: {
@@ -20,9 +22,11 @@ const WeatherLine = ({
       />
     </div>
     <p className="w-1/2 text-right">
-      <span>{maxtemp_c}&#8451;</span>
+      <CloudUploadIcon className="w-3 h-3 inline" />
+      <TemperatureTag temperature={maxtemp_c} />
       &emsp;
-      <span>{mintemp_c}&#8451;</span>
+      <CloudDownloadIcon className="w-3 h-3 inline" />
+      <TemperatureTag temperature={mintemp_c} />
     </p>
   </div>
 );

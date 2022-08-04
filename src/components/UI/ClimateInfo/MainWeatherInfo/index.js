@@ -1,4 +1,5 @@
 import { CloudDownloadIcon, CloudUploadIcon } from "@heroicons/react/outline";
+import TemperatureTag from "@ui/TemperatureTag";
 
 const MainWeatherInfo = ({
   weatherInfo: {
@@ -20,24 +21,22 @@ const MainWeatherInfo = ({
       <h3>{condition.text}</h3>
     </div>
     <div className="flex items-center">
-      &emsp;
       <p>
         <CloudUploadIcon className="h-4 w-4 inline" />
-        &nbsp;{`${maxtemp_c}`}&#8451;
+        &nbsp;
+        <TemperatureTag temperature={maxtemp_c} />
       </p>
       &emsp;
       <p>
         <CloudDownloadIcon className="h-4 w-4 inline" />
-        &nbsp;{`${mintemp_c}`}&#8451;
+        &nbsp;
+        <TemperatureTag temperature={mintemp_c} />
       </p>
     </div>
-    <h2>
+    <h2 className="text-sm my-3">
       Temperature
       <br />
-      <span>
-        {avgtemp_c}
-        <span>&#8451;</span>
-      </span>
+      <TemperatureTag className="text-6xl" temperature={avgtemp_c} />
     </h2>
   </div>
 );

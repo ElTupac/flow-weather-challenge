@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const OptionCity = ({ onSelect, cityData }) => (
-  <div className="border-2 border-t-0">
+  <div className="border-2 border-brand-accent-gray border-t-0">
     <Link href={`/${cityData.url}`}>
       <button
         type="button"

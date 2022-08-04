@@ -9,18 +9,21 @@ const SearchInput = ({ handleResultChanges, readonly = false, inputValue }) => {
     defaultValue: inputValue,
     name: "city",
     className: "px-2 py-1 w-full",
+    placeholder: "Type your city...",
   };
   if (readonly) inputProps.readonly = true;
 
   const searchOnInput = debounceFunction((e) => {
     const { value } = e.target;
-    setIsLoading(true);
-    fetch(`/api/search/${encodeURIComponent(value)}`)
-      .then((res) => res.json())
-      .then(({ results }) => {
-        setIsLoading(false);
-        handleResultChanges(results);
-      });
+    if (value && value.length) {
+      setIsLoading(true);
+      fetch(`/api/search/${encodeURIComponent(value)}`)
+        .then((res) => res.json())
+        .then(({ results }) => {
+          setIsLoading(false);
+          handleResultChanges(results);
+        });
+    }
   }, 500);
 
   const inputRef = useRef(null);

@@ -5,6 +5,7 @@
 @layer base {
   html {
     @apply !font-01;
+    @apply bg-gradient-to-b to-brand-lighten-100-blue from-brand-darken-50-blue;
   }
 }
 @tailwind components;

@@ -6,13 +6,15 @@ import ClimateSelector from "@ui/ClimateSelector";
 
 const CityForecastWrapper = ({ forecast: { forecast, location } }) => (
   <>
-    <Link href="/">
-      <p className="flex items-center text-brand-lighten-50-gray">
-        <ArrowNarrowLeftIcon className="w-5 h-5" />
-        &nbsp;Go back
-      </p>
-    </Link>
-    <div className="container mx-auto flex flex-col gap-5">
+    <div className="w-fit absolute py-1 px-2 rounded bg-white/75">
+      <Link href="/">
+        <p className="flex items-center text-brand-accent-main">
+          <ArrowNarrowLeftIcon className="w-5 h-5" />
+          &nbsp;Go back
+        </p>
+      </Link>
+    </div>
+    <div className="container mx-auto flex flex-col gap-4 text-white">
       <CityHeader cityInfo={location} />
       <ClimateInfo forecast={forecast} />
       <div className="flex justify-center">
