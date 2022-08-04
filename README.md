@@ -14,7 +14,8 @@
    2. [Controller](#controller)
    3. [UseCase](#usecase)
    4. [Service](#service)
-4. [TODO list](#todo)
+4. [Endpoints](#endpoints)
+5. [TODO list](#todo)
 
 # Flow weather API challenge
 
@@ -86,6 +87,32 @@ After the `UseCase` logic we will proceed to call the `Service` needed to provid
 ## Service
 
 The service file of our model will contain every needed resolver for the corresponding resources. In here we will have no logic at all, this will only receive the needed parameters to request the data. Only if needed, because the requested data doesn't match the `Interface` to return, we can define a parser method inside `src/utilities/parsers`. The return type of each of our `Services` will be of the `Interface` requested by the `Controller`.
+
+# Endpoints
+
+### Get City Forecast
+
+This will return infos about the location and an array with the weather of the current day and the next five, or the number of days defined in the environment variable **TOTAL_FORECAST_DAYS**
+
+```http
+  GET /api/forecast/${city}
+```
+
+| Parameter | Type     | Description   |
+| :-------- | :------- | :------------ |
+| `city`    | `string` | **Required**. |
+
+### Get Search of locations
+
+This will return an array of 5 locations that match the `query` parameter requested. The number of locations is defined in the environment variable **TOTAL_SEARCH_RESULTS**.
+
+```http
+  GET /api/search/${query}
+```
+
+| Parameter | Type     | Description   |
+| :-------- | :------- | :------------ |
+| `query`   | `string` | **Required**. |
 
 <br>
 
