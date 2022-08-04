@@ -2,27 +2,38 @@
 
 1. [Flow weather API challenge](#flow-weather-api-challenge)
    1. [Description](#description)
-   2. [Tech stack](#tech-stack)
-   3. [Other tools](#other-tools)
-2. [Frontend](#frontend)
+   2. [Demo](#demo)
+   3. [Tech stack](#tech-stack)
+   4. [Other tools](#other-tools)
+2. [How to start](#how-to-start)
+   1. [Requirements](#requirements)
+      1. [Environment variables](#environment-variables)
+   2. [Installing dependencies](#installing-dependencies)
+   3. [Running local environment](#running-local-environment)
+   4. [Production build](#production-build)
+3. [Frontend](#frontend)
    1. [Develop](#develop)
    2. [Wrappers](#wrappers)
    3. [General Components](#general-components)
    4. [Layouts](#layouts)
-3. [Architecture](#architecture)
+4. [Architecture](#architecture)
    1. [Entrypoint](#entrypoint)
    2. [Controller](#controller)
    3. [UseCase](#usecase)
    4. [Service](#service)
-4. [Endpoints](#endpoints)
-5. [Deploy](#deploy)
-6. [TODO list](#todo)
+5. [Endpoints](#endpoints)
+6. [Deploy](#deploy)
+7. [TODO list](#todo)
 
 # Flow weather API challenge
 
 ## Description
 
 This project is done in order to apply for a developer job at Flow. The challenge aims to create an app where the user can ask for the weather of any city. The data to feed this app will be from [Weather API](https://www.weatherapi.com/ "Weather-api site"), that gives us an easy and robust set of endpoints that will help us to develop our service.
+
+## Demo
+
+You can see a live demo of this project in my [heroku app](https://flow-weather.herokuapp.com/ "Flow weather demo").
 
 ## Tech stack
 
@@ -35,6 +46,56 @@ This project is done in order to apply for a developer job at Flow. The challeng
 - **Eslint**: To ensure the quality of the code, so this was a must to approach that. Was used the airbnb template but with some modifications of the rules that were making no sense.
 - **Prettier**: The proyect has Prettier installed and also a configuration that overrides whatever one you have in your code editor. This way all the devs will format the code the same way without adding useless code modifications to the commits.
 - **Husky**: This library helps to automatize tasks, like checking linter and formatting of the code before commiting, this way the devs avoid uploading code that is not approaching the code quality we are looking for.
+
+# How to start
+
+## Requirements
+
+Since this is a Node application as part of the requirements is needed to have Node.js installed, and any package manager tool, could be `npm`, `yarn`, etc. This section will be oriented to use `npm`, but the commands used could be also used in the other managers with their corresponding syntax. For **running** the project in local is also needed to define some local variables, if you need some of them(like api keys) you could ask to my [mail](mailto:nehuencovelo@gmail.com) or in my [linkedin](https://www.linkedin.com/in/el-tupac/).
+
+### Environment variables
+
+There is a total of 5 environment variables but just 2 of them are criticals, the other are just configurations that already has a default fallback in the code.
+
+| Key                    | Description                                                                                                                                      |
+| :--------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `WEATHER_API_KEY`      | **Required**. This is the API key used to access the API that provides the forecast information                                                  |
+| `WEATHER_API_URL`      | **Required**. This is the URL used to access the API that provides the forecast information                                                      |
+| `TOTAL_FORECAST_DAYS`  | **Optional**. This would define the total days of forecast to show the user.                                                                     |
+| `TOTAL_SEARCH_RESULTS` | **Optional**. This would define the total of cities to show the user in a search.                                                                |
+| `DEFAULT_LOCATIONS`    | **Optional**. In case is not possible to ask for the IP or location of the user we can define the default locations to show him in the selector. |
+
+## Installing dependencies
+
+Before doing anything is needed to install the project dependencies, for this you need to run, in the root folder of the project, the command:
+
+```
+npm i
+```
+
+**OR**
+
+```
+npm install
+```
+
+## Running local environment
+
+For running the project you need to execute, inside the root folder of the project, the command:
+
+```
+npm run dev
+```
+
+This will start a local server in the port `3000`. Now you can access the application going to [localhost:3000](http://localhost:3000/). In case the port already used, Next will try to start it in the next port.
+
+## Production build
+
+Building the project locally is important because:
+
+- We can test if any dependency, or part of code, is breaking at build time.
+- We can test locally how the performance is when we are at production, since this build is optimized and changes a lot the metrics against the `development` server.
+  If you want to create a build for production you can use the command `npm run build` and this will create a ready to production build, that you can run locally with the command `npm start` or `npm run start`. Important to notice that the last script, `start`, will only execute if before have been done the `build`, this is because the `dev` and the `production` build share the same folder(**.next**), and running either of those will overwrite the previous build; so if you try to run `npm start` after having a `dev` server running, will crash saying that `Next` couldn't find a production build.
 
 # Frontend
 
