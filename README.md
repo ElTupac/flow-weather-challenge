@@ -74,10 +74,10 @@ The service file of our model will contain every needed resolver for the corresp
   - ~~explain the architecture in the readme~~
 - **Frontend**:
   - ~~define basic theme variables.~~
-  - SEO basics(title, description, links, alts, canonicals, semantics, favicon)
-  - define UX
-  - develop pages
-  - implement functionality
+  - SEO basics(~~title~~, description, ~~links~~, ~~alts~~, canonicals, ~~semantics~~, ~~favicon~~)
+  - ~~define UX~~
+  - ~~develop pages~~
+  - ~~implement functionality~~
 - **Deployment**:
   - create Dockerfile
   - config heroku app for docker container
