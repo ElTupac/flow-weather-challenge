@@ -39,11 +39,11 @@ You can see a live demo of this project in my [heroku app](https://flow-weather.
 
 - **Next.js**: The project has to be based in the React library, and Next is a framework based in React, but with a lot of more features that will help us to develop a more powerful final solution. Next.js gives us an easy way to create the routing of our application with ease, also offers Server Side Rendering that will boost the SEO of the site for the search engines indexing, and also when sharing our site links it will generate better previews.
 - **Tailwind.css**: This css framework gives the developer an easy way to develop our components just with classes, and then the compiler of Tailwind will take care about the final css file that will only contain the classes used. This makes a lot of difference compared to other css frameworks or components libraries that will import a whole css package but without using all of its content.
-- **Typescript**: In order to ensure a better code quality we are going to use Typescript for all the API endpoints and also for the creation of our Models and Interfaces.
+- **Typescript**: In order to ensure a better code quality Typescript is being used for all the API endpoints and also for the creation of our Models and Interfaces.
 
 ## Other tools:
 
-- **Eslint**: To ensure the quality of the code, so this was a must to approach that. Was used the airbnb template but with some modifications of the rules that were making no sense.
+- **Eslint**: To ensure the quality of the code, so this was a must to approach that. Have been customized the Airbnb template with proper rules to help writing better code.
 - **Prettier**: The proyect has Prettier installed and also a configuration that overrides whatever one you have in your code editor. This way all the devs will format the code the same way without adding useless code modifications to the commits.
 - **Husky**: This library helps to automatize tasks, like checking linter and formatting of the code before commiting, this way the devs avoid uploading code that is not approaching the code quality we are looking for.
 
@@ -103,7 +103,7 @@ The `frontend` of the application is really basics, it has no complexity at all 
 
 ## Develop
 
-In this case, our project is based in Next.js, so a part of our frontend starts at server side. Next.js provides the folder `pages` where each file will be a route, and inside of it we can define also the logic to fetch/provide ar server side level. For developers, that has few experience with the framework, is a temptation to start coding the frontend itself inside of those files, but that just helps to confuse, since we could find backend logic and frontend code inside the same file. To avoid this, the files inside `pages` would only contain code that is meant to contribute to the logic, SEO, or tags that are meant to be in the `<head>`, and configurations that the page could have, like first data or Layout configuration. And as the frontend part of these files we will only export a `Wrapper` of the page.
+In this case, the project is based in Next.js, so a part of our frontend starts at server side. Next.js provides the folder `pages` where each file will be a route, and inside of it we can define also the logic to fetch/provide ar server side level. For developers, that has few experience with the framework, is a temptation to start coding the frontend itself inside of those files, but that just helps to confuse, since we could find backend logic and frontend code inside the same file. To avoid this, the files inside `pages` would only contain code that is meant to contribute to the logic, SEO, or tags that are meant to be in the `<head>`, and configurations that the page could have, like first data or Layout configuration. And as the frontend part of these files we will only export a `Wrapper` of the page.
 
 ## Wrappers
 
