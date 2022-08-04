@@ -8,7 +8,11 @@ const parseForecastData = (forecastData: any): IForecast => {
 
   return {
     location,
-    forecast: forecastday.map(({ date, day }) => ({ date, day })),
+    forecast: forecastday.map(({ date, day }) => {
+      const dayForecast = { date, day };
+      dayForecast.date += ` ${location.localtime.split(" ")[1]}`;
+      return dayForecast;
+    }),
   };
 };
 

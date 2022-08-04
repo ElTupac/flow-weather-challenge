@@ -1,7 +1,23 @@
+import * as Layouts from "@layouts/index";
+import LoadingBar from "@ui/LoadingBar";
+
 import "../styles/globals.css";
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
-}
+const App = ({ Component, pageProps }) => {
+  const availableLayouts = Object.keys(Layouts);
+  const Layout =
+    Component.layout && availableLayouts.includes(Component.layout)
+      ? Layouts[Component.layout]
+      : Layouts.DefaultLayout;
 
-export default MyApp;
+  return (
+    <>
+      <LoadingBar />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </>
+  );
+};
+
+export default App;

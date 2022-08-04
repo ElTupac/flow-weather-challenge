@@ -16,10 +16,12 @@
     "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
-      "@interfaces/*": ["src/interfaces/*"],
-      "@models/*": ["src/models/*"],
+      "@wrappers/*": ["src/components/page-wrappers/*"],
+      "@ui/*": ["src/components/UI/*"],
+      "@layouts/*": ["src/components/layout/*"],
       "@utils/*": ["src/utilities/*"],
-      "node-fetch": ["node_modules/node-fetch"]
+      "@interfaces/*": ["src/interfaces/*"],
+      "@models/*": ["src/models/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
