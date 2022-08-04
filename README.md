@@ -207,13 +207,13 @@ The application is being deployed with help of Docker, since we need a more robu
   - ~~develop pages~~
   - ~~implement functionality~~
 - **Deployment**:
-  - create Dockerfile
-  - config heroku app for docker container
-  - test deploy
+  - ~~create Dockerfile~~
+  - ~~config heroku app for docker container~~
+  - ~~test deploy~~
 - **Miscelaneous**:
   - SEO share meta tags
   - performance logs
   - testing
   - Geolocalization
 
-Total(aprox.) spent hours: 15
+Total(aprox.) spent hours: 17
