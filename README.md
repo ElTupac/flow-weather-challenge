@@ -15,7 +15,8 @@
    3. [UseCase](#usecase)
    4. [Service](#service)
 4. [Endpoints](#endpoints)
-5. [TODO list](#todo)
+5. [Deploy](#deploy)
+6. [TODO list](#todo)
 
 # Flow weather API challenge
 
@@ -113,6 +114,10 @@ This will return an array of 5 locations that match the `query` parameter reques
 | Parameter | Type     | Description   |
 | :-------- | :------- | :------------ |
 | `query`   | `string` | **Required**. |
+
+# Deploy
+
+The application is being deployed with help of Docker, since we need a more robust solution to host a whole Next.js app with SSR. The `Dockerfile` is the template given in this [official example](https://github.com/vercel/next.js/tree/canary/examples/with-docker). Also the demo is being hosted in a free app of `Heroku`, that gives a really good support for Docker containers, and also a really easy way to implement it. For `Heroku` was created the file `heroku.yml` that is the config that will use Heroku at the moment of deploying our app. The current file created is a simple one just with the instructions to use the `Dockerfile` as the builder of the image of our container, so the whole process is relying in whatever is defined inside the `Dockerfile`.
 
 <br>
 
