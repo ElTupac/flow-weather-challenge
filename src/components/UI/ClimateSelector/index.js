@@ -9,14 +9,18 @@ const ClimateSelector = ({ defaultOptions }) => {
     cityName: null,
   });
   const [cityOptions, setCityOptions] = useState(
-    Array.isArray(defaultOptions) ? defaultOptions : getDefaultLocations()
+    Array.isArray(defaultOptions) && defaultOptions.length
+      ? defaultOptions
+      : getDefaultLocations()
   );
   const [isSelectingCity, setIsSelectingCity] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
 
   const resetSearch = () => {
     setCityOptions(
-      Array.isArray(defaultOptions) ? defaultOptions : getDefaultLocations()
+      Array.isArray(defaultOptions) && defaultOptions.length
+        ? defaultOptions
+        : getDefaultLocations()
     );
   };
 
