@@ -10,7 +10,7 @@ const CityForecastWrapper = ({ forecast: { forecast, location } }) => (
       <Link href="/">
         <p className="flex items-center text-brand-accent-main">
           <ArrowNarrowLeftIcon className="w-5 h-5" />
-          &nbsp;Go back
+          <span className="md:inline hidden">&nbsp;Go back</span>
         </p>
       </Link>
     </div>
