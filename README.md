@@ -214,6 +214,6 @@ The application is being deployed with help of Docker, since we need a more robu
   - SEO share meta tags
   - performance logs
   - testing
-  - Geolocalization
+  - ~~Geolocalization~~
 
 Total(aprox.) spent hours: 17
